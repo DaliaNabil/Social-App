@@ -1,0 +1,29 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext", 
+
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "types": ["node"], 
+
+    "removeComments": true,
+    
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+
+    // Recommended Options
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}
