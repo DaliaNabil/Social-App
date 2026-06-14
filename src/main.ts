@@ -7,6 +7,9 @@ import {
   usersController,
 } from "./Modules";
 import { dbConnection } from "./DB/db.connection";
+import { glob } from "node:fs";
+import { globalErrorHandler } from "./Middlewares";
+import cors from'cors'
 
 const app: Application = express();
 
@@ -28,11 +31,12 @@ function initializeControllers(app: Application) {
   });
 
   //Global handle middleware for error handling
+  app.use(globalErrorHandler);
 }
 
 //function to handle common middlewares
 function initializeCommonMiddlewares(app: Application) {
-  app.use(express.json());
+  app.use(cors(),express.json());
 }
 
 initializeCommonMiddlewares(app);
@@ -40,7 +44,9 @@ initializeCommonMiddlewares(app);
 initializeControllers(app);
 //Database connection
 dbConnection();
+
 const port: number | string = envConfig.app.port;
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

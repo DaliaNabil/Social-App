@@ -9,10 +9,11 @@
     "rootDir": "./src",
     "outDir": "./dist",
 
-    "types": ["node"], 
+    "types": ["node", "express", "multer"], 
 
     "removeComments": true,
-    
+    "esModuleInterop": true,
+    "resolveJsonModule":true,
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
